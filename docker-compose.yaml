@@ -4,7 +4,7 @@ services:
     build: 
       context: ./airflow
       target: dev
-    entrypoint: sh -c "bin/run.sh"
+    entrypoint: sh -c "bin/airflow.sh"
     ports:
         - "8080:8080"
     volumes:

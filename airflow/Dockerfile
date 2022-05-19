@@ -7,14 +7,13 @@ FROM apache/airflow:$TAG_VERSION as base
 # ARG AIRFLOW__CORE__PLUGINS_FOLDER srv/plugins
 # ARG AIRFLOW__LOGGING__BASE_LOG_FOLDER srv/logs
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+COPY airflow/requirements/prod.txt .
+RUN pip install -r prod.txt
 
 
 
 
 FROM base as dev
-
 RUN airflow db init
 COPY . .
 
